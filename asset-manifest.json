@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/BlueKiwi-React/static/css/main.b100e6da.chunk.css",
+    "main.js": "/BlueKiwi-React/static/js/main.0ea51e00.chunk.js",
+    "main.js.map": "/BlueKiwi-React/static/js/main.0ea51e00.chunk.js.map",
+    "runtime-main.js": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js",
+    "runtime-main.js.map": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js.map",
+    "static/js/2.27e8415e.chunk.js": "/BlueKiwi-React/static/js/2.27e8415e.chunk.js",
+    "static/js/2.27e8415e.chunk.js.map": "/BlueKiwi-React/static/js/2.27e8415e.chunk.js.map",
+    "index.html": "/BlueKiwi-React/index.html",
+    "precache-manifest.439c7452660078e5372b516d01d45916.js": "/BlueKiwi-React/precache-manifest.439c7452660078e5372b516d01d45916.js",
+    "service-worker.js": "/BlueKiwi-React/service-worker.js",
+    "static/css/main.b100e6da.chunk.css.map": "/BlueKiwi-React/static/css/main.b100e6da.chunk.css.map",
+    "static/media/logo.svg": "/BlueKiwi-React/static/media/logo.25bf045c.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.f179ddec.js",
+    "static/js/2.27e8415e.chunk.js",
+    "static/css/main.b100e6da.chunk.css",
+    "static/js/main.0ea51e00.chunk.js"
+  ]
+}
