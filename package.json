@@ -4,9 +4,20 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "react": "^16.12.0",
-    "react-dom": "^16.12.0",
-    "react-scripts": "3.2.0"
+    "@babel/core": "^7.6.2",
+    "@emotion/core": "^10.0.20",
+    "@emotion/styled": "^10.0.17",
+    "babel-plugin-named-asset-import": "^0.3.4",
+    "babel-preset-react-app": "^9.0.2",
+    "emotion": "^10.0.17",
+    "node-sass": "^4.12.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.10.1",
+    "react-app-polyfill": "^1.0.4",
+    "react-dom": "^16.10.1",
+    "react-router-dom": "^5.1.2",
+    "redux": "^4.0.4",
+    "uuid": "^3.3.3"
   },
   "scripts": {
     "predeploy": "npm run build",
@@ -31,7 +42,28 @@
       "last 1 safari version"
     ]
   },
+  "babel": {
+    "presets": [
+      "react-app"
+    ],
+    "plugins": [
+      [
+        "emotion",
+        {
+          "sourceMap": true,
+          "autoLabel": true,
+          "labelFormat": true,
+          "cssPropOptimization": true
+        }
+      ]
+    ]
+  },
   "devDependencies": {
-    "gh-pages": "^2.1.1"
+    "babel-plugin-emotion": "^10.0.20",
+    "gh-pages": "^2.1.1",
+    "react-redux": "^7.1.1",
+    "react-scripts": "^3.2.0",
+    "redux-devtools": "^3.5.0",
+    "redux-thunk": "^2.3.0"
   }
 }
