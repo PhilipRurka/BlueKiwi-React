@@ -1,22 +1,21 @@
 {
   "files": {
-    "main.css": "/BlueKiwi-React/static/css/main.b100e6da.chunk.css",
-    "main.js": "/BlueKiwi-React/static/js/main.0ea51e00.chunk.js",
-    "main.js.map": "/BlueKiwi-React/static/js/main.0ea51e00.chunk.js.map",
+    "main.css": "/BlueKiwi-React/static/css/main.e7daed52.chunk.css",
+    "main.js": "/BlueKiwi-React/static/js/main.20b1f8a7.chunk.js",
+    "main.js.map": "/BlueKiwi-React/static/js/main.20b1f8a7.chunk.js.map",
     "runtime-main.js": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js",
     "runtime-main.js.map": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js.map",
-    "static/js/2.27e8415e.chunk.js": "/BlueKiwi-React/static/js/2.27e8415e.chunk.js",
-    "static/js/2.27e8415e.chunk.js.map": "/BlueKiwi-React/static/js/2.27e8415e.chunk.js.map",
+    "static/js/2.a2ee3812.chunk.js": "/BlueKiwi-React/static/js/2.a2ee3812.chunk.js",
+    "static/js/2.a2ee3812.chunk.js.map": "/BlueKiwi-React/static/js/2.a2ee3812.chunk.js.map",
     "index.html": "/BlueKiwi-React/index.html",
-    "precache-manifest.c7439e68d4e3646c9ff714dc68a6bf88.js": "/BlueKiwi-React/precache-manifest.c7439e68d4e3646c9ff714dc68a6bf88.js",
+    "precache-manifest.b1ffe10c7bea257e1023a430efd1ae59.js": "/BlueKiwi-React/precache-manifest.b1ffe10c7bea257e1023a430efd1ae59.js",
     "service-worker.js": "/BlueKiwi-React/service-worker.js",
-    "static/css/main.b100e6da.chunk.css.map": "/BlueKiwi-React/static/css/main.b100e6da.chunk.css.map",
-    "static/media/logo.svg": "/BlueKiwi-React/static/media/logo.25bf045c.svg"
+    "static/css/main.e7daed52.chunk.css.map": "/BlueKiwi-React/static/css/main.e7daed52.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.f179ddec.js",
-    "static/js/2.27e8415e.chunk.js",
-    "static/css/main.b100e6da.chunk.css",
-    "static/js/main.0ea51e00.chunk.js"
+    "static/js/2.a2ee3812.chunk.js",
+    "static/css/main.e7daed52.chunk.css",
+    "static/js/main.20b1f8a7.chunk.js"
   ]
 }
