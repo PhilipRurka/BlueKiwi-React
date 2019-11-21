@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "bdd483624b2e832264ec4cda524e7b91",
+    "revision": "c1d4ee6aa03f94610e8e401cb42f64a3",
     "url": "/BlueKiwi-React/index.html"
   },
   {
