@@ -64,7 +64,7 @@ const Label = styled.label(({ targetLocation, currentPathname }) => ({
   textTransform: 'uppercase',
   cursor: 'pointer',
   transition: 'color 0.2s ease',
-  color: (targetLocation && targetLocation === currentPathname)
+  color: (targetLocation && (process.env.PUBLIC_URL + targetLocation) === currentPathname)
     ? COLORS.brandColorTextHover : 'black',
 
   '&:hover': {
@@ -77,7 +77,9 @@ const Label = styled.label(({ targetLocation, currentPathname }) => ({
 }));
 
 const goToPage = (page, currentHistory) => {
-  if(currentHistory.location.pathname === page) { return };
+  if(currentHistory.location.pathname === (process.env.PUBLIC_URL + page)) { return };
+
+  const test = process.env.PUBLIC_URL + page;
 
   currentHistory.push(process.env.PUBLIC_URL + page);
 };

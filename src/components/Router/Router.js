@@ -36,13 +36,13 @@ const Router = ({ updateHistory }) => {
             return <Pages {...props} page={LANDING_PAGE} /> }
           } />
         <Route
-          path={watchListPage}
+          path={discoverPage}
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={DISCOVER_PAGE} /> }
           } />
         <Route
-          path={discoverPage}
+          path={watchListPage}
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={WATCH_LIST_PAGE} /> }
