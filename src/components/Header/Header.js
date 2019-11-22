@@ -1,6 +1,10 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
+import {
+  LANDING_PAGE,
+  DISCOVER_PAGE
+} from '../../helpers/constants';
 
 const HeaderWrapper = styled.header({
   position: 'fixed',
@@ -68,6 +72,12 @@ const NavItems = styled.div({
   }
 });
 
+const goToPage = (page, currentHistory) => {
+  if(currentHistory.location.pathname === page) { return };
+
+  currentHistory.push(process.env.PUBLIC_URL + page);
+};
+
 const Header = ({ currentHistory }) => {
 
   return (
@@ -76,13 +86,22 @@ const Header = ({ currentHistory }) => {
         <div className="content">
           <NavBar>
             <ImageWrapper>
-              <div className="image" />
+              <div
+                className="image"
+                onClick={() => (goToPage(LANDING_PAGE, currentHistory))} />
             </ImageWrapper>
 
             <NavItems>
               <div className="item">
-                <label>Discover</label>
-                <label>Watchlist</label>
+                <label
+                  onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))} >
+                  Discover
+                </label>
+                <label
+                  // onClick={() => (goToPage(LANDING_PAGE, currentHistory))}
+                  >
+                  Watchlist
+                </label>
               </div>
             </NavItems>
           </NavBar>

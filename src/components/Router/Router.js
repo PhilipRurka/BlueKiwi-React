@@ -6,17 +6,20 @@ import {
   Redirect
 } from 'react-router-dom';
 import {
-  LANDING_PAGE
+  LANDING_PAGE,
+  DISCOVER_PAGE
 } from '../../helpers/constants';
 import Pages from '../Pages';
 
 const routeOptions = {
-  landingPage: process.env.PUBLIC_URL + LANDING_PAGE
+  landingPage: process.env.PUBLIC_URL + LANDING_PAGE,
+  discoverPage: process.env.PUBLIC_URL + DISCOVER_PAGE
 };
 
 const Router = ({ updateHistory }) => {
   const {
-    landingPage
+    landingPage,
+    discoverPage
   } = routeOptions;
 
   return (
@@ -27,13 +30,19 @@ const Router = ({ updateHistory }) => {
           path={landingPage}
           component={(props) => {
             updateHistory(props.history, );
-            return <Pages {...props} page={landingPage} /> }
+            return <Pages {...props} page={LANDING_PAGE} /> }
+          } />
+        <Route
+          path={discoverPage}
+          component={(props) => {
+            updateHistory(props.history, );
+            return <Pages {...props} page={DISCOVER_PAGE} /> }
           } />
         <Redirect
           to={landingPage}
           component={(props) => (
             <Pages {...props}
-              page={landingPage} />
+              page={LANDING_PAGE} />
           )} />
       </Switch>
     </BrowserRouter>
