@@ -3,7 +3,8 @@ import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
 import {
   LANDING_PAGE,
-  DISCOVER_PAGE
+  DISCOVER_PAGE,
+  WATCH_LIST_PAGE
 } from '../../helpers/constants';
 
 const HeaderWrapper = styled.header({
@@ -54,23 +55,26 @@ const NavItems = styled.div({
 
   },
 
-  'label': {
-    fontSize: '14px',
-    fontWeight: '900',
-    margin: '0',
-    textTransform: 'uppercase',
-    cursor: 'pointer',
-    transition: 'color 0.2s ease',
-
-    '&:hover': {
-      color: COLORS.brandColorTextHover
-    },
-
-    '& + label': {
-      marginLeft: '16px'
-    }
-  }
 });
+
+const Label = styled.label(({ targetLocation, currentPathname }) => ({
+  fontSize: '14px',
+  fontWeight: '900',
+  margin: '0',
+  textTransform: 'uppercase',
+  cursor: 'pointer',
+  transition: 'color 0.2s ease',
+  color: (targetLocation && targetLocation === currentPathname)
+    ? COLORS.brandColorTextHover : 'black',
+
+  '&:hover': {
+    color: COLORS.brandColorTextHover
+  },
+
+  '& + label': {
+    marginLeft: '16px'
+  }
+}));
 
 const goToPage = (page, currentHistory) => {
   if(currentHistory.location.pathname === page) { return };
@@ -78,7 +82,7 @@ const goToPage = (page, currentHistory) => {
   currentHistory.push(process.env.PUBLIC_URL + page);
 };
 
-const Header = ({ currentHistory }) => {
+const Header = ({ currentHistory, currentPathname }) => {
 
   return (
     <HeaderWrapper>
@@ -93,15 +97,18 @@ const Header = ({ currentHistory }) => {
 
             <NavItems>
               <div className="item">
-                <label
-                  onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))} >
+                <Label
+                  onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))}
+                  currentPathname={currentPathname}
+                  targetLocation={DISCOVER_PAGE} >
                   Discover
-                </label>
-                <label
-                  // onClick={() => (goToPage(LANDING_PAGE, currentHistory))}
-                  >
+                </Label>
+                <Label
+                  onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
+                  currentPathname={currentPathname}
+                  targetLocation={WATCH_LIST_PAGE} >
                   Watchlist
-                </label>
+                </Label>
               </div>
             </NavItems>
           </NavBar>

@@ -7,19 +7,22 @@ import {
 } from 'react-router-dom';
 import {
   LANDING_PAGE,
-  DISCOVER_PAGE
+  DISCOVER_PAGE,
+  WATCH_LIST_PAGE
 } from '../../helpers/constants';
 import Pages from '../Pages';
 
 const routeOptions = {
   landingPage: process.env.PUBLIC_URL + LANDING_PAGE,
-  discoverPage: process.env.PUBLIC_URL + DISCOVER_PAGE
+  discoverPage: process.env.PUBLIC_URL + DISCOVER_PAGE,
+  watchListPage: process.env.PUBLIC_URL + WATCH_LIST_PAGE
 };
 
 const Router = ({ updateHistory }) => {
   const {
     landingPage,
-    discoverPage
+    discoverPage,
+    watchListPage
   } = routeOptions;
 
   return (
@@ -29,14 +32,20 @@ const Router = ({ updateHistory }) => {
           exact
           path={landingPage}
           component={(props) => {
-            updateHistory(props.history, );
+            updateHistory(props.history);
             return <Pages {...props} page={LANDING_PAGE} /> }
+          } />
+        <Route
+          path={watchListPage}
+          component={(props) => {
+            updateHistory(props.history);
+            return <Pages {...props} page={DISCOVER_PAGE} /> }
           } />
         <Route
           path={discoverPage}
           component={(props) => {
-            updateHistory(props.history, );
-            return <Pages {...props} page={DISCOVER_PAGE} /> }
+            updateHistory(props.history);
+            return <Pages {...props} page={WATCH_LIST_PAGE} /> }
           } />
         <Redirect
           to={landingPage}
