@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "de55ceaed0abf0af0b1f2b7aea456a3c",
+    "revision": "12143e5da1e4f8708e1a46e02af92134",
     "url": "/BlueKiwi-React/index.html"
   },
   {
-    "revision": "d10f9126ae1064172962",
+    "revision": "f5d586b04822f6925270",
     "url": "/BlueKiwi-React/static/css/main.e7daed52.chunk.css"
   },
   {
@@ -12,8 +12,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/BlueKiwi-React/static/js/2.9e4284fb.chunk.js"
   },
   {
-    "revision": "d10f9126ae1064172962",
-    "url": "/BlueKiwi-React/static/js/main.147742ad.chunk.js"
+    "revision": "f5d586b04822f6925270",
+    "url": "/BlueKiwi-React/static/js/main.2287a88f.chunk.js"
   },
   {
     "revision": "2e61192823063905d581",
