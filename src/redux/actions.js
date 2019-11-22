@@ -1,7 +1,7 @@
 import {
-  PLACEHOLDER
+  UPDATE_HISTORY
 } from '../helpers/constants';
 
-export function placeholder(payload) {
-  return { type: PLACEHOLDER, payload };
+export function updateHistory(payload) {
+  return { type: UPDATE_HISTORY, payload };
 };

@@ -1,16 +1,16 @@
 import {
-  PLACEHOLDER
+  UPDATE_HISTORY
 } from '../helpers/constants';
 
 const initialState = {
-  placeholder: ''
+  currentHistory: {}
 };
 
 function rootReducer(state = initialState, action) {
   const { type, payload } = action;
   
-  if(type === PLACEHOLDER) {
-    return Object.assign({}, state, { placeholder: payload })
+  if(type === UPDATE_HISTORY) {
+    return Object.assign({}, state, { currentHistory: payload });
   };
 
   return state;
