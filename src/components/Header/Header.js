@@ -40,7 +40,7 @@ const ImageWrapper = styled.div({
     width: '100%',
     backgroundRepeat: 'no-repeat',
     backgroundSize: 'contain',
-    backgroundImage: 'url("/images/bluekiwi-tech-logo.svg")',
+    backgroundImage: `url("${process.env.PUBLIC_URL}/images/bluekiwi-tech-logo.svg")`,
     cursor: 'pointer'
   }
 });
