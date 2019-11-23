@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import MobileMenu from '../MobileMenu';
 import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
 import {
@@ -8,6 +9,7 @@ import {
   WATCH_LIST_PAGE
 } from '../../helpers/constants';
 
+/** Styles Styles Styles Styles Styles */
 const HeaderWrapper = styled.header({
   position: 'fixed',
   top: '0',
@@ -38,6 +40,8 @@ const NavBar = styled.div({
 });
 
 const ImageWrapper = styled.div({
+  position: 'relative',
+  bottom: '6px',
   height: '25px',
   width: '100px',
   
@@ -52,10 +56,6 @@ const ImageWrapper = styled.div({
 });
 
 const NavItems = styled.div({
-  '.item': {
-
-  },
-
   [breakPoints.breakPointXXS]: {
     display: 'none'
   }
@@ -66,7 +66,7 @@ const BurgerMenu = styled.div({
   display: 'none',
   position: 'relative',
   height: '20px',
-  width: '20px',
+  width: '22px',
   cursor: 'pointer',
 
   '&:hover': {
@@ -121,19 +121,22 @@ const Label = styled.label(({ targetLocation, currentPathname }) => ({
     marginLeft: '16px'
   }
 }));
+/** End End End End End */
 
+/** Events Events Events Events Events */
 const goToPage = (page, currentHistory) => {
   if(currentHistory.location.pathname === (process.env.PUBLIC_URL + page)) { return };
 
-  const test = process.env.PUBLIC_URL + page;
-
   currentHistory.push(process.env.PUBLIC_URL + page);
 };
+/** End End End End End */
 
-const Header = ({ currentHistory, currentPathname }) => {
+const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
 
   return (
     <HeaderWrapper>
+      <MobileMenu
+        goToPage={goToPage} />
       <div className='container'>
         <div className="content">
           <NavBar>
@@ -143,7 +146,8 @@ const Header = ({ currentHistory, currentPathname }) => {
                 onClick={() => (goToPage(LANDING_PAGE, currentHistory))} />
             </ImageWrapper>
 
-            <BurgerMenu>
+            <BurgerMenu
+              onClick={() => (openMobileMenu(true))} >
               <div className="lines line1" />
               <div className="lines line2" />
               <div className="lines line3" />
@@ -173,3 +177,6 @@ const Header = ({ currentHistory, currentPathname }) => {
 };
 
 export default Header;
+
+
+// the class "item"  is not being used

@@ -1,13 +1,15 @@
-import Header from './Header';
+import MobileMenu from './MobileMenu';
 import { connect } from 'react-redux';
 import { openMobileMenu } from '../../redux/actions';
 
 const mapToStateToProps = ({
   currentHistory,
-  currentPathname
+  currentPathname,
+  showingMobileMenu
 }) => ({
   currentHistory,
-  currentPathname
+  currentPathname,
+  showingMobileMenu
 });
 
 const mapDispatchToProps = (dispatch) => ({
@@ -17,4 +19,4 @@ const mapDispatchToProps = (dispatch) => ({
 export default connect(
   mapToStateToProps,
   mapDispatchToProps
-) (Header);
+) (MobileMenu);
