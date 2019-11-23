@@ -132,20 +132,18 @@ const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
             </BurgerMenu>
 
             <NavItems>
-              <div className="item">
-                <Label
-                  onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))}
-                  currentPathname={currentPathname}
-                  targetLocation={DISCOVER_PAGE} >
-                  Discover
-                </Label>
-                <Label
-                  onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
-                  currentPathname={currentPathname}
-                  targetLocation={WATCH_LIST_PAGE} >
-                  Watchlist
-                </Label>
-              </div>
+              <Label
+                onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))}
+                currentPathname={currentPathname}
+                targetLocation={DISCOVER_PAGE} >
+                Discover
+              </Label>
+              <Label
+                onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
+                currentPathname={currentPathname}
+                targetLocation={WATCH_LIST_PAGE} >
+                Watchlist
+              </Label>
             </NavItems>
           </NavBar>
         </div>
@@ -155,6 +153,3 @@ const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
 };
 
 export default Header;
-
-
-// the class "item"  is not being used
