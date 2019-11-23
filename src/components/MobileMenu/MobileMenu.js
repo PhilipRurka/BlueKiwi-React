@@ -1,14 +1,15 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import { COLORS } from '../../helpers/colors';
+import { Cross} from '../CustomeMadeIcons';
 import {
   DISCOVER_PAGE,
   WATCH_LIST_PAGE
 } from '../../helpers/constants';
 
 const MobileMenuWrapper = styled.div(({ showingMobileMenu }) => {
-
   const width = '200px';
-  
+
   return {
     position: 'fixed',
     top: '0',
@@ -17,24 +18,42 @@ const MobileMenuWrapper = styled.div(({ showingMobileMenu }) => {
     height: '100vh',
     width: width,
     backgroundColor: 'white',
-    transition: 'right 0.5s ease'
+    transition: 'right 0.5s ease',
+
+    'li': {
+      textAlign: 'right',
+      marginRight: '15px',
+
+      '& + li': { marginTop: '10px' }
+    }
   };
 });
 
 const XIcon = styled.div({
-  '.image': {
-    height: '30px',
-    width: '30px',
-    backgroundColor: 'black'
+  position: 'relative',
+  height: '80px',
+  
+  '.iconContent': {
+    position: 'absolute',
+    top: '50%',
+    right: '15px',
+    transform: 'translateY(-50%)',
+    height: '22px',
+    width: '22px',
+    cursor: 'pointer',
+
+    '&:hover': {
+      '.lines > *': {
+        backgroundColor: COLORS.brandColorTextHover
+      }
+    }
   }
 });
 
-const Label = styled.label(() => {
-
-  return {
-
-  };
-});
+const Label = styled.label(({ targetLocation, currentPathname }) => ({
+  color: (targetLocation && (process.env.PUBLIC_URL + targetLocation) === currentPathname)
+  ? COLORS.brandColorTextHover : COLORS.iconBlack
+}));
 
 const MobileMenu = ({ goToPage, currentHistory, currentPathname, showingMobileMenu, openMobileMenu }) => {
 
@@ -44,8 +63,10 @@ const MobileMenu = ({ goToPage, currentHistory, currentPathname, showingMobileMe
       <div className="content">
         <XIcon>
           <div
-            className="image"
-            onClick={() => (openMobileMenu(false))} />
+            className="iconContent"
+            onClick={() => (openMobileMenu(false))} >
+            <Cross />
+          </div>
         </XIcon>
         <ul>
           <li>

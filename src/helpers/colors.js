@@ -1,6 +1,7 @@
 export const COLORS = {
   white                       : '#fff',
   black                       : '#2F334A',
+  iconBlack                   : '#41404e',
   
   // Site Colors
   martinique                  : '#2f334a',

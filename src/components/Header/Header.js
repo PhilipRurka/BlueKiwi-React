@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import MobileMenu from '../MobileMenu';
+import { Hamburger } from '../CustomeMadeIcons';
 import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
 import {
@@ -23,13 +24,26 @@ const HeaderWrapper = styled.header({
     height: '100%'
   },
   
-  '.content': {
+  '.content-header': {
     position: 'absolute',
     top: '50%',
     left: '0',
     transform: 'translateY(-50%)',
     width: '100%',
     padding: '0 15px'
+  },
+
+  'label': {
+    fontSize: '14px',
+    fontWeight: '900',
+    margin: '0',
+    textTransform: 'uppercase',
+    cursor: 'pointer',
+    transition: 'color 0.2s ease',
+
+    '&:hover': {
+      color: COLORS.brandColorTextHover
+    }
   }
 });
 
@@ -59,7 +73,6 @@ const NavItems = styled.div({
   [breakPoints.breakPointXXS]: {
     display: 'none'
   }
-
 });
 
 const BurgerMenu = styled.div({
@@ -70,32 +83,9 @@ const BurgerMenu = styled.div({
   cursor: 'pointer',
 
   '&:hover': {
-    '.lines': {
+    '.lines > *': {
       backgroundColor: COLORS.brandColorTextHover
     }
-  },
-
-  '.lines': {
-    position: 'absolute',
-    left: '0',
-    width: '100%',
-    height: '4px',
-    borderRadius: '2px',
-    backgroundColor: 'black',
-    transition: 'background-color 0.2s ease'
-  },
-
-  '.line1': {
-    top: '50%',
-    transform: 'translateY(-50%)',
-  },
-
-  '.line2': {
-    top: '0'
-  },
-
-  '.line3': {
-    bottom: '0'
   },
 
   [breakPoints.breakPointXXS]: {
@@ -104,18 +94,8 @@ const BurgerMenu = styled.div({
 });
 
 const Label = styled.label(({ targetLocation, currentPathname }) => ({
-  fontSize: '14px',
-  fontWeight: '900',
-  margin: '0',
-  textTransform: 'uppercase',
-  cursor: 'pointer',
-  transition: 'color 0.2s ease',
   color: (targetLocation && (process.env.PUBLIC_URL + targetLocation) === currentPathname)
-    ? COLORS.brandColorTextHover : 'black',
-
-  '&:hover': {
-    color: COLORS.brandColorTextHover
-  },
+    ? COLORS.brandColorTextHover : COLORS.iconBlack,
 
   '& + label': {
     marginLeft: '16px'
@@ -138,7 +118,7 @@ const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
       <MobileMenu
         goToPage={goToPage} />
       <div className='container'>
-        <div className="content">
+        <div className="content-header">
           <NavBar>
             <ImageWrapper>
               <div
@@ -148,9 +128,7 @@ const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
 
             <BurgerMenu
               onClick={() => (openMobileMenu(true))} >
-              <div className="lines line1" />
-              <div className="lines line2" />
-              <div className="lines line3" />
+              <Hamburger />
             </BurgerMenu>
 
             <NavItems>
