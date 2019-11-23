@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import Overlay from '../Overlay';
 import { COLORS } from '../../helpers/colors';
 import { Cross} from '../CustomeMadeIcons';
 import {
@@ -14,7 +15,7 @@ const MobileMenuWrapper = styled.div(({ showingMobileMenu }) => {
     position: 'fixed',
     top: '0',
     right: (showingMobileMenu) ? '0' : `-${width}`,
-    zIndex: '6',
+    zIndex: '7',
     height: '100vh',
     width: width,
     backgroundColor: 'white',
@@ -55,39 +56,50 @@ const Label = styled.label(({ targetLocation, currentPathname }) => ({
   ? COLORS.brandColorTextHover : COLORS.iconBlack
 }));
 
+const goToPageFunc = (openMobileMenu, goToPage, page, currentHistory) => {
+  goToPage(page, currentHistory);
+  openMobileMenu(false);
+};
+
 const MobileMenu = ({ goToPage, currentHistory, currentPathname, showingMobileMenu, openMobileMenu }) => {
 
   return (
-    <MobileMenuWrapper
-      showingMobileMenu={showingMobileMenu} >
-      <div className="content">
-        <XIcon>
-          <div
-            className="iconContent"
-            onClick={() => (openMobileMenu(false))} >
-            <Cross />
-          </div>
-        </XIcon>
-        <ul>
-          <li>
-            <Label
-              onClick={() => (goToPage(DISCOVER_PAGE, currentHistory))}
-              currentPathname={currentPathname}
-              targetLocation={DISCOVER_PAGE} >
-              Discovery
-            </Label>
-          </li>
-          <li>
-            <Label
-              onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
-              currentPathname={currentPathname}
-              targetLocation={WATCH_LIST_PAGE} >
-              Watchlist
-            </Label>
-          </li>
-        </ul>
-      </div>
-    </MobileMenuWrapper>
+    <>
+      <Overlay
+        openCondition={showingMobileMenu}
+        clickEvent={openMobileMenu} />
+      <MobileMenuWrapper
+        showingMobileMenu={showingMobileMenu} >
+        <div className="content">
+          <XIcon>
+            <div
+              className="iconContent"
+              onClick={() => (openMobileMenu(false))} >
+              <Cross />
+            </div>
+          </XIcon>
+          <ul>
+            <li>
+              <Label
+                onClick={() => (goToPageFunc(openMobileMenu, goToPage, DISCOVER_PAGE, currentHistory))}
+                currentPathname={currentPathname}
+                targetLocation={DISCOVER_PAGE} >
+                Discovery
+              </Label>
+            </li>
+            <li>
+              <Label
+                onClick={() => (goToPageFunc(openMobileMenu, goToPage, WATCH_LIST_PAGE, currentHistory))}
+                goToPage={goToPage}
+                currentPathname={currentPathname}
+                targetLocation={WATCH_LIST_PAGE} >
+                Watchlist
+              </Label>
+            </li>
+          </ul>
+        </div>
+      </MobileMenuWrapper>
+    </>
   );
 };
 
