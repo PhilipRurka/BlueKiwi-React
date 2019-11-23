@@ -1,21 +1,21 @@
 {
   "files": {
     "main.css": "/BlueKiwi-React/static/css/main.e7daed52.chunk.css",
-    "main.js": "/BlueKiwi-React/static/js/main.1ecf2dc2.chunk.js",
-    "main.js.map": "/BlueKiwi-React/static/js/main.1ecf2dc2.chunk.js.map",
+    "main.js": "/BlueKiwi-React/static/js/main.a64f8c22.chunk.js",
+    "main.js.map": "/BlueKiwi-React/static/js/main.a64f8c22.chunk.js.map",
     "runtime-main.js": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js",
     "runtime-main.js.map": "/BlueKiwi-React/static/js/runtime-main.f179ddec.js.map",
-    "static/js/2.14caeec1.chunk.js": "/BlueKiwi-React/static/js/2.14caeec1.chunk.js",
-    "static/js/2.14caeec1.chunk.js.map": "/BlueKiwi-React/static/js/2.14caeec1.chunk.js.map",
+    "static/js/2.bcdc8eb0.chunk.js": "/BlueKiwi-React/static/js/2.bcdc8eb0.chunk.js",
+    "static/js/2.bcdc8eb0.chunk.js.map": "/BlueKiwi-React/static/js/2.bcdc8eb0.chunk.js.map",
     "index.html": "/BlueKiwi-React/index.html",
-    "precache-manifest.924aa2eb186514557e2c8e11129ce63f.js": "/BlueKiwi-React/precache-manifest.924aa2eb186514557e2c8e11129ce63f.js",
+    "precache-manifest.86ac5af43cf026278621a9c61ce23c23.js": "/BlueKiwi-React/precache-manifest.86ac5af43cf026278621a9c61ce23c23.js",
     "service-worker.js": "/BlueKiwi-React/service-worker.js",
     "static/css/main.e7daed52.chunk.css.map": "/BlueKiwi-React/static/css/main.e7daed52.chunk.css.map"
   },
   "entrypoints": [
     "static/js/runtime-main.f179ddec.js",
-    "static/js/2.14caeec1.chunk.js",
+    "static/js/2.bcdc8eb0.chunk.js",
     "static/css/main.e7daed52.chunk.css",
-    "static/js/main.1ecf2dc2.chunk.js"
+    "static/js/main.a64f8c22.chunk.js"
   ]
 }
