@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
+import { breakPoints } from '../../helpers/breakPoints';
 import { COLORS } from '../../helpers/colors';
 import {
   LANDING_PAGE,
@@ -55,6 +56,51 @@ const NavItems = styled.div({
 
   },
 
+  [breakPoints.breakPointXXS]: {
+    display: 'none'
+  }
+
+});
+
+const BurgerMenu = styled.div({
+  display: 'none',
+  position: 'relative',
+  height: '20px',
+  width: '20px',
+  cursor: 'pointer',
+
+  '&:hover': {
+    '.lines': {
+      backgroundColor: COLORS.brandColorTextHover
+    }
+  },
+
+  '.lines': {
+    position: 'absolute',
+    left: '0',
+    width: '100%',
+    height: '4px',
+    borderRadius: '2px',
+    backgroundColor: 'black',
+    transition: 'background-color 0.2s ease'
+  },
+
+  '.line1': {
+    top: '50%',
+    transform: 'translateY(-50%)',
+  },
+
+  '.line2': {
+    top: '0'
+  },
+
+  '.line3': {
+    bottom: '0'
+  },
+
+  [breakPoints.breakPointXXS]: {
+    display: 'block',
+  }
 });
 
 const Label = styled.label(({ targetLocation, currentPathname }) => ({
@@ -96,6 +142,12 @@ const Header = ({ currentHistory, currentPathname }) => {
                 className="image"
                 onClick={() => (goToPage(LANDING_PAGE, currentHistory))} />
             </ImageWrapper>
+
+            <BurgerMenu>
+              <div className="lines line1" />
+              <div className="lines line2" />
+              <div className="lines line3" />
+            </BurgerMenu>
 
             <NavItems>
               <div className="item">
