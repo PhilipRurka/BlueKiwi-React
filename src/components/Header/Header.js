@@ -18,6 +18,7 @@ const HeaderWrapper = styled.header({
   zIndex: '5',
   height: '80px',
   width: '100vw',
+  backgroundColor: 'white',
 
   '.container': {
     position: 'relative',

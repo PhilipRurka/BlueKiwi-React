@@ -1,4 +1,5 @@
 import React from 'react';
+import styled from '@emotion/styled/macro';
 import BreadCrums from '../BreadCrums';
 import LandingPage from '../LandingPage';
 import DiscoveryPage from '../DiscoveryPage';
@@ -8,6 +9,10 @@ import {
   DISCOVER_PAGE,
   WATCH_LIST_PAGE
 } from '../../helpers/constants';
+
+const PagesWrapper = styled.div({
+  paddingTop: '80px'
+});
 
 const Pages = ({ page }) => {
   let chosenPage;
@@ -21,10 +26,10 @@ const Pages = ({ page }) => {
   };
 
   return (
-    <>
+    <PagesWrapper className='container'>
       <BreadCrums />
       {chosenPage}
-    </>
+    </PagesWrapper>
   );
 };
 

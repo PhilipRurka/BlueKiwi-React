@@ -8,6 +8,7 @@ export const COLORS = {
   turquoise                   : '#2cddbb',
   turquoiseThin               : '#21cead',
   flamingo                    : '#ff8da6',
+  stormGray                   : '#6E6E90',
   
   brandColorText              : '#6250ff',
   brandColorTextHover         : '#5645ec',
