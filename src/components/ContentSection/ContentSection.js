@@ -2,6 +2,11 @@ import React from 'react';
 import styled from '@emotion/styled/macro';
 
 const ContentSectionStyled = styled.div({
+
+  '& + .content-section': {
+    marginTop: '65px'
+  },
+
   '& > label': {
     fontSize: '18px',
     fontWeight: '600',
@@ -13,7 +18,7 @@ const ContentSectionStyled = styled.div({
 const ContentSection = ({ label, children }) => {
 
   return (
-    <ContentSectionStyled>
+    <ContentSectionStyled className='content-section' >
       <label>{label}</label>
       {children}
     </ContentSectionStyled>

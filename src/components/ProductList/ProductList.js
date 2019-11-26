@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import ContentSection from '../ContentSection';
+import ProductCard from '../ProductCard';
 import { COLORS } from '../../helpers/colors';
 import { breakPoints } from '../../helpers/breakPoints';
 
@@ -14,7 +15,10 @@ const Products = styled.div({
     padding: '15px'
   },
   
-  '.product-container': { backgroundColor: COLORS.athensGray },
+  '.product-container': {
+    borderRadius: '5px',
+    backgroundColor: COLORS.athensGray
+  },
 
   '.image-wrapper': {
     margin: 'auto',
@@ -72,15 +76,9 @@ const ProductList = () => {
           <div
             key={i}
             className="product-wrapper col-md-6 col-lg-4 col-xl-3" >
-            <div className="product-container">
-              <div className="image-wrapper">
-                <div className="image" />
-              </div>
-              <div className="content">
-                <label>Product Name</label>
-                <span>Topic Topic Topic</span>
-              </div>
-            </div>
+            <ProductCard
+              name='Product Name'
+              sub='Type Type Type' />
           </div>
         ))}
       </Products>
