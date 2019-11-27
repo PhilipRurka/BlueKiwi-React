@@ -1,6 +1,7 @@
 import {
   UPDATE_HISTORY,
-  OPEN_MOBILE_MENU
+  OPEN_MOBILE_MENU,
+  UPDATE_LISTS
 } from '../helpers/constants';
 
 export function updateHistory(payload) {
@@ -9,4 +10,8 @@ export function updateHistory(payload) {
 
 export function openMobileMenu(payload) {
   return { type: OPEN_MOBILE_MENU, payload };
+};
+
+export function updateLists(payload) {
+  return { type: UPDATE_LISTS, payload };
 };

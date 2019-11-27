@@ -4,25 +4,38 @@ import Header from '../Header';
 import Router from '../Router';
 import Footer from '../Footer';
 
-const GlobalWrapper = styled.div({
-  '*': {
-    '-webkitFontSmoothing' : 'antialiased',
-    '-mozOsxFontSmoothing': 'grayscale',
-    fontFamily: '"Roboto", sans-serif',
-    letterSpacing: '0.5px'
-  },
+class App extends React.Component {
 
-  'h1, h2, h3, h4, h5, label': {
-    fontFamily: '"Nunito", sans-serif'
-  }
-});
+  GlobalWrapper = styled.div({
+    '*': {
+      '-webkitFontSmoothing' : 'antialiased',
+      '-mozOsxFontSmoothing': 'grayscale',
+      fontFamily: '"Roboto", sans-serif',
+      letterSpacing: '0.5px'
+    },
+  
+    'h1, h2, h3, h4, h5, label': {
+      fontFamily: '"Nunito", sans-serif'
+    }
+  });
 
-const App = () => (
-  <GlobalWrapper>
-    <Header />
-    <Router />
-    <Footer />
-  </GlobalWrapper>
-);
+  componentWillMount = () => {
+    const { props: { updateLists, productsList } } = this;
+    const isEmpty = (Object.keys(productsList).length === 0 && productsList.constructor === Object);
+    updateLists(isEmpty);
+  };
+
+  render() {
+    const { GlobalWrapper } = this;
+
+    return(
+      <GlobalWrapper>
+        <Header />
+        <Router />
+        <Footer />
+      </GlobalWrapper>
+    )
+  };
+};
 
 export default App;
