@@ -52,7 +52,8 @@ const ProductContainer = styled.div(({ image:{ url } }) => ({
   'label, span': {
     display: 'block',
     fontSize:'14px',
-    fontWeight: '600'
+    fontWeight: '600',
+    lineHeight: '1rem'
   },
 
   'label': {

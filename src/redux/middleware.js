@@ -56,15 +56,15 @@ export function middleware() {
               });
             });
 
-            action = { type, payload: {
+            return next({ type, payload: {
               products,
               discoveries
-            } };
+            }});
             
-            return next(action);
           });
         };
       };
+      return next(action);
     };
   };
 };
