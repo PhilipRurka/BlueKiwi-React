@@ -13,7 +13,7 @@ const Products = styled.div({
   },
 
   '.image-wrapper': {
-    
+
     [breakPoints.breakPointSM]: {
       width: '455px'
     },
@@ -38,7 +38,8 @@ const ProductList = ({ productsList }) => {
     <ContentSection
       label='Hot And Fresh' >
       <Products>
-        {Object.keys(productsList).map((key) => {
+
+        {Object.keys(productsList).slice(0, 12).map((key, i) => {
           const product = productsList[key];
 
           return (
