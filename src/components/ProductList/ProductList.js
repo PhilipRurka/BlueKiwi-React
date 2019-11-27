@@ -39,7 +39,7 @@ const ProductList = ({ productsList }) => {
       label='Hot And Fresh' >
       <Products>
 
-        {Object.keys(productsList).slice(0, 12).map((key, i) => {
+        {Object.keys(productsList).slice(0, 12).map((key) => {
           const product = productsList[key];
 
           return (

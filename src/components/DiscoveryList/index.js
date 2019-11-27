@@ -1,1 +1,1 @@
-export { default } from './DiscoveryList';
+export { default } from './DiscoveryList.container';

@@ -9,7 +9,7 @@ const initialState = {
   currentPathname: '',
   showingMobileMenu: false,
   productsList: {},
-  categoriesList: {}
+  discoveriesList: {}
 };
 
 function rootReducer(state = initialState, action) {
@@ -25,11 +25,11 @@ function rootReducer(state = initialState, action) {
     return Object.assign({}, state, { showingMobileMenu: payload });
     
   } else if(type === UPDATE_LISTS) {
-    const { products, categories } = payload;
+    const { products, discoveries } = payload;
     
     return Object.assign({}, state, {
       productsList: { ...products },
-      categoriesList: { ...categories }
+      discoveriesList: { ...discoveries }
     });
   };
 

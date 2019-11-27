@@ -12,21 +12,19 @@ export function middleware() {
           getProductsList()
           .then((res) => {
 
-            let categories = {};
+            let discoveries = {};
             let products = {};
 
-            res.includes.Entry.map((category) => {
-              category = category.fields;
-
-              categories[category.type] = {
-                name: category.type,
-                slug: category.categorySlug,
-                description: category.description,
-                image: category.image.fields.file.url,
+            res.includes.Entry.map((discovery) => {
+              discovery = discovery.fields;
+              discoveries[discovery.type] = {
+                name: discovery.type,
+                slug: discovery.categorySlug,
+                description: discovery.description,
+                image: discovery.image.fields.file.url,
                 products: []
               };
             });
-
 
             res.items.map((product) => {
               product = product.fields;
@@ -53,14 +51,14 @@ export function middleware() {
                 image: images
               };
 
-              product.categories.map((category) => {
-                categories[category.fields.type].products.push(products[product.name]);
+              product.categories.map((discovery) => {
+                discoveries[discovery.fields.type].products.push(products[product.name]);
               });
             });
 
             action = { type, payload: {
               products,
-              categories
+              discoveries
             } };
             
             return next(action);
