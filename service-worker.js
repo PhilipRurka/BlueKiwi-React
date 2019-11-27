@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/BlueKiwi-React/precache-manifest.ff7ac17b915608edf0d627269fe910dd.js"
+  "/BlueKiwi-React/precache-manifest.1a5031c1eb057734f5104a300b55f71b.js"
 );
 
 self.addEventListener('message', (event) => {
