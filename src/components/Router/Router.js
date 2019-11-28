@@ -61,7 +61,12 @@ const Router = ({ updateHistory }) => {
           } />
         <Route
         exact
-          path={[productPage, discoverToProductPage]}
+          path={[
+            productPage,
+            discoverToProductPage,
+            `${discoverToProductPage}/*`,
+            `${productPage}/*`
+          ]}
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={PRODUCT_PAGE} /> }

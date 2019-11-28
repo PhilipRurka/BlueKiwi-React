@@ -53,19 +53,31 @@ const Pages = ({
   } else if(page === PRODUCT_PAGE) {
     const selectedProduct = productsList[match.params.product];
 
-    if(selectedProduct) {
-      chosenPage = <ProductPage
-        selectedProduct={selectedProduct} />
+    if(match.params['0']) {
+      const product = `/${match.params.product}`;
+      const option = (match.params.option) ? `/${match.params.option}` : '';
+      const root = (option.length !== 0) ? '/discover' : '';
+
+      currentHistory.push(process.env.PUBLIC_URL + root + option + product);
+
     } else {
-      if(!isObjEmpty(productsList)) {
-        chosenPage = null;
-        if(match.params.option) {
-          currentHistory.push(process.env.PUBLIC_URL + DISCOVER_PAGE + '/' + match.params.option);
-        } else {
-          currentHistory.push(process.env.PUBLIC_URL + LANDING_PAGE);
+      const selectedDiscovery = (match.params.option) ? !!discoveriesList[match.params.option] : true;
+
+      if(selectedProduct && selectedDiscovery) {
+        chosenPage = <ProductPage
+          selectedProduct={selectedProduct} />
+      } else {
+        if(!isObjEmpty(productsList)) {
+          chosenPage = null;
+          if(match.params.option) {
+            currentHistory.push(process.env.PUBLIC_URL + DISCOVER_PAGE + '/' + match.params.option);
+          } else {
+            currentHistory.push(process.env.PUBLIC_URL + LANDING_PAGE);
+          };
         };
       };
-    }
+    };
+
 
     chosenPage = <ProductPage />
 
