@@ -3,10 +3,14 @@ import { connect } from 'react-redux';
 
 const mapToStateToProps = ({
   currentPathname,
-  productsList
+  productsList,
+  discoveriesList,
+  currentHistory
 }) => ({
   currentPathname,
-  productsList
+  productsList,
+  discoveriesList,
+  currentHistory
 });
 
 export default connect(

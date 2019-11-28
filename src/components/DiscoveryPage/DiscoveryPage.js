@@ -4,7 +4,10 @@ import ContentSection from '../ContentSection';
 import DiscoveryList from '../DiscoveryList';
 import { goToDiscovery } from '../../helpers/general';
 
-const DiscoveryPage = ({ discoveriesList, currentHistory}) => {
+const DiscoveryPage = ({
+  discoveriesList,
+  currentHistory
+}) => {
 
   return (
     <>

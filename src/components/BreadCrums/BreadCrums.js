@@ -9,19 +9,19 @@ const BreadCrumsWrapper = styled.div({
 
 const Label = styled.label(({ url, isLast }) => {
 
-  let color;
-  let cursor;
-  let margin;
+  let color, cursor, margin, hoverColor;
 
   if(url) {
     margin = '0';
 
     if(!isLast) {
       color = COLORS.brandColorText;
-      cursor = 'pointer'
+      cursor = 'pointer';
+      hoverColor = COLORS.brandColorTextHover
     } else {
       color = 'black';
       cursor = 'initial';
+      hoverColor = 'initial';
     };
 
   } else {
@@ -35,12 +35,16 @@ const Label = styled.label(({ url, isLast }) => {
     textTransform: 'uppercase',
     color,
     cursor,
-    margin
+    margin,
+    
+    '&:hover': {
+      color: hoverColor
+    }
   }
 });
 
-const goToPage = (url, currentHistory) => {
-  if(url) {
+const goToPage = (url, currentHistory, isLast) => {
+  if(url && !isLast) {
     currentHistory.push(process.env.PUBLIC_URL + url);
   };
 };
@@ -62,7 +66,15 @@ const BreadCrums = ({
 
   for (let i = 2; i < pathnameArray.length; i++) {
     const name = pathnameArray[i];
-    const item = productsList[name] || discoveriesList[name];
+    let item;
+
+    if(i === 2) {
+      item = discoveriesList[name];
+    } else if((i === 3)) {
+      item = productsList[name];
+    } else {
+      item = null;
+    };
 
     if(item) {
       url = `${url}/${item.slug}`
@@ -72,22 +84,26 @@ const BreadCrums = ({
         url
       });
     } else {
-      return null;
+      break;
     };
   };
 
   return (
     <>
       <BreadCrumsWrapper>
-        {itemArray.map((item, i) => (
-          <Label
-            key={item.name}
-            url={item.url}
-            isLast={itemArray.length === (i + 1)}
-            onClick={() => (goToPage(item.url, currentHistory))} >
-            {item.name}
-          </Label>
-        ))}
+        {itemArray.map((item, i) => {
+          const isLast = (itemArray.length === (i + 1))
+
+          return (
+            <Label
+              key={item.name + i}
+              url={item.url}
+              isLast={isLast}
+              onClick={() => (goToPage(item.url, currentHistory, isLast))} >
+              {item.name}
+            </Label>
+          )
+        })}
       </BreadCrumsWrapper>
     </>
   );

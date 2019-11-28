@@ -2,11 +2,9 @@ import DiscoveryOptionPage from './DiscoveryOptionPage';
 import { connect } from 'react-redux';
 
 const mapToStateToProps = ({
-  currentHistory,
-  discoveriesList
+  currentHistory
 }) => ({
-  currentHistory,
-  discoveriesList
+  currentHistory
 });
 
 export default connect(

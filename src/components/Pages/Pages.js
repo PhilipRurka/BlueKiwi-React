@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro';
 import BreadCrums from '../BreadCrums';
 import LandingPage from '../LandingPage';
 import DiscoveryPage from '../DiscoveryPage';
+import ProductPage from '../ProductPage';
 import WatchListPage from '../WatchListPage';
 import DiscoveryOptionPage from '../DiscoveryOptionPage';
 import { isObjEmpty } from '../../helpers/general';
@@ -10,7 +11,8 @@ import {
   LANDING_PAGE,
   DISCOVER_PAGE,
   DISCOVER_OPTION_PAGE,
-  WATCH_LIST_PAGE
+  WATCH_LIST_PAGE,
+  PRODUCT_PAGE
 } from '../../helpers/constants';
 
 const PagesWrapper = styled.div({
@@ -21,7 +23,9 @@ const Pages = ({
   page,
   match,
   currentPathname,
-  productsList
+  productsList,
+  discoveriesList,
+  currentHistory
 }) => {
   let chosenPage;
 
@@ -29,13 +33,45 @@ const Pages = ({
 
   if(page === LANDING_PAGE) {
     chosenPage = <LandingPage />
+
   } else if(page === DISCOVER_PAGE) {
     chosenPage = <DiscoveryPage />
+
   } else if(page === DISCOVER_OPTION_PAGE) {
-    chosenPage = <DiscoveryOptionPage
-      paramValue={match.params.option} />
+    const selectedDiscovery = discoveriesList[match.params.option];
+
+    if(selectedDiscovery) {
+      chosenPage = <DiscoveryOptionPage
+        selectedDiscovery={selectedDiscovery} />
+    } else {
+      if(!isObjEmpty(discoveriesList)) {
+        chosenPage = null;
+        currentHistory.push(process.env.PUBLIC_URL + DISCOVER_PAGE);
+      };
+    };
+  
+  } else if(page === PRODUCT_PAGE) {
+    const selectedProduct = productsList[match.params.product];
+
+    if(selectedProduct) {
+      chosenPage = <ProductPage
+        selectedProduct={selectedProduct} />
+    } else {
+      if(!isObjEmpty(productsList)) {
+        chosenPage = null;
+        if(match.params.option) {
+          currentHistory.push(process.env.PUBLIC_URL + DISCOVER_PAGE + '/' + match.params.option);
+        } else {
+          currentHistory.push(process.env.PUBLIC_URL + LANDING_PAGE);
+        };
+      };
+    }
+
+    chosenPage = <ProductPage />
+
   } else if(page === WATCH_LIST_PAGE) {
     chosenPage = <WatchListPage />
+
   };
 
   let breadCrums;

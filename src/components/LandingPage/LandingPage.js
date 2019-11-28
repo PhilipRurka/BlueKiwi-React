@@ -3,7 +3,10 @@ import styled from '@emotion/styled/macro';
 import ProductList from '../ProductList';
 import DiscoveryList from '../DiscoveryList';
 import ContentSection from '../ContentSection';
-import { goToDiscovery } from '../../helpers/general';
+import {
+  goToProduct,
+  goToDiscovery
+} from '../../helpers/general';
 
 const LandingPage = ({ productsList, discoveriesList, currentHistory }) => {
   const keys = Object.keys(productsList).slice(0, 12);
@@ -14,7 +17,9 @@ const LandingPage = ({ productsList, discoveriesList, currentHistory }) => {
       <ContentSection
         label='Hot And Fresh' >
         <ProductList
-          productList={products} />
+          productList={products}
+          clickEvent={goToProduct}
+          currentHistory={currentHistory} />
       </ContentSection>
       <ContentSection
         label='Discovery' >

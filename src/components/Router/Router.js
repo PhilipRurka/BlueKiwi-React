@@ -9,14 +9,18 @@ import {
   LANDING_PAGE,
   DISCOVER_PAGE,
   DISCOVER_OPTION_PAGE,
-  WATCH_LIST_PAGE
+  WATCH_LIST_PAGE,
+  OPTION,
+  PRODUCT_PAGE
 } from '../../helpers/constants';
 import Pages from '../Pages';
 
 const routeOptions = {
   landingPage: process.env.PUBLIC_URL + LANDING_PAGE,
   discoverPage: process.env.PUBLIC_URL + DISCOVER_PAGE,
-  discoverOptionPage: process.env.PUBLIC_URL + DISCOVER_PAGE + '/:option',
+  discoverOptionPage: process.env.PUBLIC_URL + DISCOVER_PAGE + OPTION,
+  productPage: process.env.PUBLIC_URL + PRODUCT_PAGE,
+  discoverToProductPage: process.env.PUBLIC_URL + DISCOVER_PAGE + OPTION + PRODUCT_PAGE,
   watchListPage: process.env.PUBLIC_URL + WATCH_LIST_PAGE
 };
 
@@ -25,7 +29,10 @@ const Router = ({ updateHistory }) => {
     landingPage,
     discoverPage,
     discoverOptionPage,
-    watchListPage
+    watchListPage,
+    productPage,
+    discoverToProductPage
+
   } = routeOptions;
 
   return (
@@ -46,10 +53,18 @@ const Router = ({ updateHistory }) => {
             return <Pages {...props} page={DISCOVER_PAGE} /> }
           } />
         <Route
+          exact
           path={discoverOptionPage}
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={DISCOVER_OPTION_PAGE} /> }
+          } />
+        <Route
+        exact
+          path={[productPage, discoverToProductPage]}
+          component={(props) => {
+            updateHistory(props.history);
+            return <Pages {...props} page={PRODUCT_PAGE} /> }
           } />
         <Route
           path={watchListPage}

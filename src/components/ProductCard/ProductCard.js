@@ -64,12 +64,20 @@ const ProductContainer = styled.div(({ image:{ url } }) => ({
   'span': { color: COLORS.blueHaze }
 }));
 
-const ProductCard = ({ name, sub, image }) => {
+const ProductCard = ({
+  name,
+  sub,
+  image,
+  slug,
+  clickEvent = null,
+  currentHistory = null
+}) => {
 
   return (
 
     <ProductContainer
-      image={image} >
+      image={image}
+      onClick={() => (clickEvent(currentHistory, slug))} >
       <div className="image-wrapper">
         <div className="image" />
       </div>

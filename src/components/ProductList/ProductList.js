@@ -32,7 +32,12 @@ const Products = styled.div({
   }
 });
 
-const ProductList = ({ productList }) => {
+const ProductList = ({
+  productList,
+  clickEvent = null,
+  currentHistory = null
+}) => {
+  
   return (
     <Products>
       {productList.map((product) => {
@@ -44,7 +49,10 @@ const ProductList = ({ productList }) => {
             <ProductCard
               name={product.name}
               sub={product.shortDescription}
-              image={product.image[0]} />
+              image={product.image[0]}
+              slug={product.slug}
+              clickEvent={clickEvent}
+              currentHistory={currentHistory} />
           </div>
         );
       })}
