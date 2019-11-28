@@ -32,29 +32,23 @@ const Products = styled.div({
   }
 });
 
-const ProductList = ({ productsList }) => {
-
+const ProductList = ({ productList }) => {
   return (
-    <ContentSection
-      label='Hot And Fresh' >
-      <Products>
+    <Products>
+      {productList.map((product) => {
 
-        {Object.keys(productsList).slice(0, 12).map((key) => {
-          const product = productsList[key];
-
-          return (
-            <div
-              key={product.name}
-              className="product-wrapper col-md-6 col-lg-4 col-xl-3" >
-              <ProductCard
-                name={product.name}
-                sub={product.shortDescription}
-                image={product.image[0]} />
-            </div>
-          )
-        })}
-      </Products>
-    </ContentSection>
+        return (
+          <div
+            key={product.name}
+            className="product-wrapper col-md-6 col-lg-4 col-xl-3" >
+            <ProductCard
+              name={product.name}
+              sub={product.shortDescription}
+              image={product.image[0]} />
+          </div>
+        );
+      })}
+    </Products>
   );
 };
 

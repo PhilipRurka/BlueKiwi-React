@@ -26,7 +26,7 @@ function rootReducer(state = initialState, action) {
     
   } else if(type === UPDATE_LISTS) {
     const { products, discoveries } = payload;
-    
+
     return Object.assign({}, state, {
       productsList: { ...products },
       discoveriesList: { ...discoveries }

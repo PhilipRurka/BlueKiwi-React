@@ -8,6 +8,7 @@ import {
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
+  DISCOVER_OPTION_PAGE,
   WATCH_LIST_PAGE
 } from '../../helpers/constants';
 import Pages from '../Pages';
@@ -15,6 +16,7 @@ import Pages from '../Pages';
 const routeOptions = {
   landingPage: process.env.PUBLIC_URL + LANDING_PAGE,
   discoverPage: process.env.PUBLIC_URL + DISCOVER_PAGE,
+  discoverOptionPage: process.env.PUBLIC_URL + DISCOVER_PAGE + '/:option',
   watchListPage: process.env.PUBLIC_URL + WATCH_LIST_PAGE
 };
 
@@ -22,6 +24,7 @@ const Router = ({ updateHistory }) => {
   const {
     landingPage,
     discoverPage,
+    discoverOptionPage,
     watchListPage
   } = routeOptions;
 
@@ -36,10 +39,17 @@ const Router = ({ updateHistory }) => {
             return <Pages {...props} page={LANDING_PAGE} /> }
           } />
         <Route
+          exact
           path={discoverPage}
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={DISCOVER_PAGE} /> }
+          } />
+        <Route
+          path={discoverOptionPage}
+          component={(props) => {
+            updateHistory(props.history);
+            return <Pages {...props} page={DISCOVER_OPTION_PAGE} /> }
           } />
         <Route
           path={watchListPage}
@@ -49,10 +59,10 @@ const Router = ({ updateHistory }) => {
           } />
         <Redirect
           to={landingPage}
-          component={(props) => (
-            <Pages {...props}
-              page={LANDING_PAGE} />
-          )} />
+          component={(props) => {
+            updateHistory(props.history);
+            return <Pages {...props} page={LANDING_PAGE} /> }
+          } />
       </Switch>
     </BrowserRouter>
   );

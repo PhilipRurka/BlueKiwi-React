@@ -47,12 +47,19 @@ const DiscoveryContainer = styled.div(({ image }) => ({
   }
 }));
 
-const DiscoveryCard = ({ title, image }) => {
+const DiscoveryCard = ({
+  title,
+  image,
+  slug,
+  clickEvent = null,
+  currentHistory = null,
+}) => {
 
   return (
     <DiscoveryContainer
       className='discovery-container'
-      image={image} >
+      image={image}
+      onClick={() => (clickEvent(currentHistory, slug))} >
       <label>{title}</label>
     </DiscoveryContainer>
   )

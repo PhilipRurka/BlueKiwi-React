@@ -1,10 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import ContentSection from '../ContentSection';
 import DiscoveryCard from '../DiscoveryCard';
-import { breakPoints } from '../../helpers/breakPoints';
 
-const Options = styled.div({
+const DiscoveryWrapper = styled.div({
   margin: '0 -15px',
 
   '.discovery-wrapper': {
@@ -13,27 +11,31 @@ const Options = styled.div({
   }
 });
 
-const DiscoveryList = ({ discoveriesList }) => {
+const DiscoveryList = ({
+  discoveryList,
+  clickEvent = null,
+  currentHistory = null,
+}) => {
 
   return (
-    <ContentSection
-      label='Discovery' >
-      <Options>
-        {Object.keys(discoveriesList).map((key) => {
-          const discovery = discoveriesList[key];
+    <DiscoveryWrapper>
+      {Object.keys(discoveryList).map((key) => {
+        const discovery = discoveryList[key];
 
-          return (
-            <div
-              key={discovery.name}
-              className="discovery-wrapper col-md-6 col-lg-4 col-xl-3" >
-              <DiscoveryCard
-                title={discovery.name}
-                image={discovery.image} />
-            </div>
-          );
-        })}
-      </Options>
-    </ContentSection>
+        return (
+          <div
+            key={discovery.name}
+            className="discovery-wrapper col-md-6 col-lg-4 col-xl-3" >
+            <DiscoveryCard
+              title={discovery.name}
+              image={discovery.image}
+              slug={discovery.slug}
+              clickEvent={clickEvent}
+              currentHistory={currentHistory} />
+          </div>
+        );
+      })}
+    </DiscoveryWrapper>
   );
 };
 

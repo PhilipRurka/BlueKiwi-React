@@ -17,7 +17,7 @@ export function middleware() {
 
             res.includes.Entry.map((discovery) => {
               discovery = discovery.fields;
-              discoveries[discovery.type] = {
+              discoveries[discovery.categorySlug] = {
                 name: discovery.type,
                 slug: discovery.categorySlug,
                 description: discovery.description,
@@ -38,7 +38,7 @@ export function middleware() {
                 };
               });
 
-              products[product.name] = {
+              products[product.slug] = {
                 name: product.name,
                 companyName: product.companyName,
                 description: product.description,
@@ -52,7 +52,7 @@ export function middleware() {
               };
 
               product.categories.map((discovery) => {
-                discoveries[discovery.fields.type].products.push(products[product.name]);
+                discoveries[discovery.fields.categorySlug].products.push(products[product.slug]);
               });
             });
 
@@ -60,11 +60,11 @@ export function middleware() {
               products,
               discoveries
             }});
-            
           });
         };
+      } else {
+        return next(action);
       };
-      return next(action);
     };
   };
 };
