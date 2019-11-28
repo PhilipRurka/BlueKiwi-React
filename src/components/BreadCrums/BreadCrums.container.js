@@ -3,9 +3,11 @@ import { connect } from 'react-redux';
 import { openMobileMenu } from '../../redux/actions';
 
 const mapToStateToProps = ({
+  currentHistory,
   productsList,
   discoveriesList
 }) => ({
+  currentHistory,
   productsList,
   discoveriesList
 });

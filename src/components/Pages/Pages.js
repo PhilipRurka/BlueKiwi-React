@@ -5,6 +5,7 @@ import LandingPage from '../LandingPage';
 import DiscoveryPage from '../DiscoveryPage';
 import WatchListPage from '../WatchListPage';
 import DiscoveryOptionPage from '../DiscoveryOptionPage';
+import { isObjEmpty } from '../../helpers/general';
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
@@ -19,9 +20,12 @@ const PagesWrapper = styled.div({
 const Pages = ({
   page,
   match,
-  currentPathname
+  currentPathname,
+  productsList
 }) => {
   let chosenPage;
+
+  window.scrollTo(0, 0);
 
   if(page === LANDING_PAGE) {
     chosenPage = <LandingPage />
@@ -34,10 +38,17 @@ const Pages = ({
     chosenPage = <WatchListPage />
   };
 
+  let breadCrums;
+  const pathnameArray = currentPathname.split('/');
+  if(!isObjEmpty(productsList) && pathnameArray[1] === 'discover' && pathnameArray.length >= 3) {
+    breadCrums = <BreadCrums currentPathname={currentPathname} />
+  } else {
+    breadCrums = null;
+  };
+
   return (
     <PagesWrapper className='container'>
-      <BreadCrums
-      currentPathname={currentPathname} />
+      {breadCrums}
       {chosenPage}
     </PagesWrapper>
   );

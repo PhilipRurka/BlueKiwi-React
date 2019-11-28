@@ -28,8 +28,8 @@ const ContentSection = ({
 
   return (
     <ContentSectionStyled className='content-section' >
-      <label>{label}</label>
-      <p>{description}</p>
+      {(label) && <label>{label}</label>}
+      {(description) && <p>{description}</p>}
       {children}
     </ContentSectionStyled>
   );

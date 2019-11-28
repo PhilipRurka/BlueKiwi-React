@@ -2,9 +2,11 @@ import Pages from './Pages';
 import { connect } from 'react-redux';
 
 const mapToStateToProps = ({
-  currentPathname
+  currentPathname,
+  productsList
 }) => ({
-  currentPathname
+  currentPathname,
+  productsList
 });
 
 export default connect(

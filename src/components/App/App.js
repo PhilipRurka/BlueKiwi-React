@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro';
 import Header from '../Header';
 import Router from '../Router';
 import Footer from '../Footer';
+import { isObjEmpty } from '../../helpers/general';
 
 class App extends React.Component {
 
@@ -21,7 +22,7 @@ class App extends React.Component {
 
   componentWillMount = () => {
     const { props: { updateLists, productsList } } = this;
-    const isEmpty = (Object.keys(productsList).length === 0 && productsList.constructor === Object);
+    const isEmpty = (isObjEmpty(productsList));
     updateLists(isEmpty);
   };
 

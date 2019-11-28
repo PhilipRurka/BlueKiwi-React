@@ -3,6 +3,7 @@ import styled from '@emotion/styled/macro';
 import ProductList from '../ProductList';
 import ContentSection from '../ContentSection';
 import { DISCOVER_PAGE } from '../../helpers/constants';
+import { isObjEmpty } from '../../helpers/general';
 
 const DiscoveryOptionPage = ({ discoveriesList, paramValue, currentHistory }) => {
   const selectedDiscovery = discoveriesList[paramValue];
@@ -18,7 +19,7 @@ const DiscoveryOptionPage = ({ discoveriesList, paramValue, currentHistory }) =>
         </ContentSection>
     );
   } else {
-    if(!(Object.keys(discoveriesList).length === 0 && discoveriesList.constructor === Object)) {
+    if(!isObjEmpty(discoveriesList)) {
       currentHistory.push(process.env.PUBLIC_URL + DISCOVER_PAGE);
     };
     
