@@ -16,7 +16,11 @@ const PagesWrapper = styled.div({
   paddingTop: '80px'
 });
 
-const Pages = ({ page, match }) => {
+const Pages = ({
+  page,
+  match,
+  currentPathname
+}) => {
   let chosenPage;
 
   if(page === LANDING_PAGE) {
@@ -32,7 +36,8 @@ const Pages = ({ page, match }) => {
 
   return (
     <PagesWrapper className='container'>
-      <BreadCrums />
+      <BreadCrums
+      currentPathname={currentPathname} />
       {chosenPage}
     </PagesWrapper>
   );

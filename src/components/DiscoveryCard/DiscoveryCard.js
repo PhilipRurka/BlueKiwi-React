@@ -48,7 +48,7 @@ const DiscoveryContainer = styled.div(({ image }) => ({
 }));
 
 const DiscoveryCard = ({
-  title,
+  name,
   image,
   slug,
   clickEvent = null,
@@ -60,7 +60,7 @@ const DiscoveryCard = ({
       className='discovery-container'
       image={image}
       onClick={() => (clickEvent(currentHistory, slug))} >
-      <label>{title}</label>
+      <label>{name}</label>
     </DiscoveryContainer>
   )
 };

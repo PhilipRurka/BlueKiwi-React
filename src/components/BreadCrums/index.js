@@ -1,1 +1,1 @@
-export { default } from './BreadCrums';
+export { default } from './BreadCrums.container';

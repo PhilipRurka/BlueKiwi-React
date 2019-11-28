@@ -27,7 +27,7 @@ const DiscoveryList = ({
             key={discovery.name}
             className="discovery-wrapper col-md-6 col-lg-4 col-xl-3" >
             <DiscoveryCard
-              title={discovery.name}
+              name={discovery.name}
               image={discovery.image}
               slug={discovery.slug}
               clickEvent={clickEvent}
