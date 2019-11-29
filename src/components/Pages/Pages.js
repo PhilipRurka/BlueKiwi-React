@@ -86,9 +86,13 @@ const Pages = ({
   };
 
   let breadCrums;
+
   const pathnameArray = currentPathname.split('/');
+  if(pathnameArray[1] === 'BlueKiwi-React') {
+    pathnameArray.splice(1, 1);
+  };
   if(!isObjEmpty(productsList) && pathnameArray[1] === 'discover' && pathnameArray.length >= 3) {
-    breadCrums = <BreadCrums currentPathname={currentPathname} />
+    breadCrums = <BreadCrums pathnameArray={pathnameArray} />
   } else {
     breadCrums = null;
   };

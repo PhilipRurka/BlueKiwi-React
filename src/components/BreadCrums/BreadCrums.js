@@ -50,13 +50,12 @@ const goToPage = (url, currentHistory, isLast) => {
 };
 
 const BreadCrums = ({
-  currentPathname,
+  pathnameArray,
   productsList,
   discoveriesList,
   currentHistory
 }) => {
 
-  const pathnameArray = currentPathname.split('/');
   let itemArray = [];
   let url = '/discover';
   itemArray.push({

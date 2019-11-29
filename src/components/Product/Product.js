@@ -54,6 +54,10 @@ const Product = ({ product }) => {
     ...colStyles,
     marginRight: '-15px',
 
+    '.content-container': {
+      marginLeft: '15px'
+    },
+
     'label, span': {
       display: 'block',
     },
@@ -85,9 +89,11 @@ const Product = ({ product }) => {
       </ImagesWrapper>
       <ContentWrapper
         className='col-md-6' >
-        <label>{product.name}</label>
-        <span>{product.shortDescription}</span>
-        <p>{product.description}</p>
+        <div className="content-container">
+          <label>{product.name}</label>
+          <span>{product.shortDescription}</span>
+          <p>{product.description}</p>
+        </div>
       </ContentWrapper>
     </>
   );
