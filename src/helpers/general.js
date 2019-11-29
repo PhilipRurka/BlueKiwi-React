@@ -1,12 +1,9 @@
 import { DISCOVER_PAGE } from './constants';
 
 export const goToProduct = (currentHistory, param) => {
-  // Temporary!
-  currentHistory.location.pathname = '/BlueKiwi-React/discover/outdoors';
   let pathname = currentHistory.location.pathname;
   if(pathname.includes('/BlueKiwi-React/')) {
     pathname = pathname.split('/BlueKiwi-React');
-    debugger
     pathname = pathname[1];
   };
   if(pathname !== '/') {

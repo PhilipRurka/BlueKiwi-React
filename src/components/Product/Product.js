@@ -34,11 +34,6 @@ const Product = ({ product }) => {
 
   });
 
-  const ContentWrapper = styled.div({
-    ...colStyles,
-    marginRight: '-15px'
-  });
-
   const ImageContainer = styled.div(({ image }) => ({
     
     '& + div': {
@@ -55,7 +50,19 @@ const Product = ({ product }) => {
     }
   }));
 
-  console.dir(product.image);
+  const ContentWrapper = styled.div({
+    ...colStyles,
+    marginRight: '-15px',
+
+    'label, span': {
+      display: 'block',
+    },
+
+    'label': {
+      fontSize: '36px',
+      fontWeight: '900',
+    }
+  });
 
   return (
     <>
@@ -78,38 +85,12 @@ const Product = ({ product }) => {
       </ImagesWrapper>
       <ContentWrapper
         className='col-md-6' >
-
+        <label>{product.name}</label>
+        <span>{product.shortDescription}</span>
+        <p>{product.description}</p>
       </ContentWrapper>
     </>
   );
 };
 
 export default Product;
-
-
-
-//Example Param Values
-// const array = [55,55,55,55,55,55,55,55,4,1,2,4,6,8,0,6,3,2,4,6,7,0,0,8,5,3,2,1,3,5,6,7,89,9,6,4,3,2,2,2,4,6,7,8,90,8,6,5,4,3,2,2,56];
-// const n = 8;
-
-// const findOccurrence = (array, n) => {
-//   return new Promise((resolve) => {
-//     let numberCountHash = {};
-
-//     array.map((num) => {
-//       num = num.toString();
-//       numberCountHash[num] = numberCountHash[num] ? +1 : 0;
-//     });
-
-//     let arrayOfOccurrences = Object.keys(numberCountHash).filter((key) =>
-//       numberCountHash[key] === n
-//     );
-
-//     return resolve(arrayOfOccurrences);
-//   });
-// };
-
-// findOccurrence(array, n)
-// .then(arrayOfOccurrences =>
-//   console.log(arrayOfOccurrences) // Logs ["55, "2"]
-// );
