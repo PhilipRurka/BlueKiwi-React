@@ -48,11 +48,16 @@ export function middleware() {
                 shortDescription: product.shortDescriptor,
                 subTitle: product.subTitle,
                 websiteUrl: product.websiteUrl,
-                image: images
+                images: images,
+                discoveries: []
               };
 
               product.categories.map((discovery) => {
                 discoveries[discovery.fields.categorySlug].products.push(products[product.slug]);
+                products[product.slug].discoveries.push({
+                  name: discovery.fields.type,
+                  slug: discovery.fields.categorySlug
+                })
               });
             });
 

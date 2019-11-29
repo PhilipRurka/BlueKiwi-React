@@ -37,7 +37,7 @@ const ProductList = ({
   clickEvent = null,
   currentHistory = null
 }) => {
-  
+
   return (
     <Products>
       {productList.map((product) => {
@@ -49,7 +49,7 @@ const ProductList = ({
             <ProductCard
               name={product.name}
               sub={product.shortDescription}
-              image={product.image[0]}
+              image={product.images[0]}
               slug={product.slug}
               clickEvent={clickEvent}
               currentHistory={currentHistory} />

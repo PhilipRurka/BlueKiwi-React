@@ -3,9 +3,9 @@ import styled from '@emotion/styled/macro';
 import { isObjEmpty } from '../../helpers/general';
 import { COLORS } from '../../helpers/colors';
 
-const BreadCrumsWrapper = styled.div({
-
-});
+const BreadCrumsWrapper = styled.div(({ isProduct }) => ({
+  marginBottom: (isProduct) ? '30px' : '0'
+}));
 
 const Label = styled.label(({ url, isLast }) => {
 
@@ -56,6 +56,7 @@ const BreadCrums = ({
   currentHistory
 }) => {
 
+  let isProduct = false;
   let itemArray = [];
   let url = '/discover';
   itemArray.push({
@@ -71,6 +72,7 @@ const BreadCrums = ({
       item = discoveriesList[name];
     } else if((i === 3)) {
       item = productsList[name];
+      isProduct = true;
     } else {
       item = null;
     };
@@ -89,7 +91,8 @@ const BreadCrums = ({
 
   return (
     <>
-      <BreadCrumsWrapper>
+      <BreadCrumsWrapper
+        isProduct={isProduct} >
         {itemArray.map((item, i) => {
           const isLast = (itemArray.length === (i + 1))
 
