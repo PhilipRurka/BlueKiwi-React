@@ -59,6 +59,7 @@ const Pages = ({
       const root = (option.length !== 0) ? '/discover' : '';
 
       currentHistory.push(process.env.PUBLIC_URL + root + option + product);
+      return <></>;
 
     } else {
       const selectedDiscovery = (match.params.option) ? !!discoveriesList[match.params.option] : true;
@@ -74,16 +75,14 @@ const Pages = ({
           } else {
             currentHistory.push(process.env.PUBLIC_URL + LANDING_PAGE);
           };
+          
+          return <></>;
         };
       };
     };
 
-
-    chosenPage = <ProductPage />
-
   } else if(page === WATCH_LIST_PAGE) {
     chosenPage = <WatchListPage />
-
   };
 
   let breadCrums;
