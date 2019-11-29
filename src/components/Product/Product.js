@@ -12,11 +12,15 @@ const Product = ({ product }) => {
   const ImagesWrapper = styled.div({
     ...colStyles,
     marginLeft: '-15px',
+    overflow: 'hidden',
+    borderRadius: '5px',
 
     '.iframe-wrapper': {
       position: 'relative',
       paddingBottom: '100%',
-      marginBottom: '15px'
+      marginBottom: '15px',
+      overflow: 'hidden',
+      borderRadius: '5px',
     },
 
     '.video-wrapper': {
