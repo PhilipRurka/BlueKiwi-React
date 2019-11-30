@@ -1,7 +1,8 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { COLORS } from '../../helpers/colors';
 import Pills from '../Pills';
+import SimilarProducts from '../SimilarProducts';
+import { COLORS } from '../../helpers/colors';
 import { goToDiscovery } from '../../helpers/general';
 import { AmazonButton } from '../Buttons';
 import { breakPoints } from '../../helpers/breakPoints';
@@ -153,43 +154,47 @@ const ImageContainer = ({ product, addImages = null }) => {
 const Product = ({ product, currentHistory }) => {
 
   return (
-    <ProductWrapper>
+    <>
+      <ProductWrapper>
 
-      <SlickSlider
-        video={product.videoLink}
-        images={product.images} />
-      
-      <ImagesWrapper
-        className='col-md-6' >
-        <ImageContainer
-          product={product}
-          addImages='true' />
-      </ImagesWrapper>
-
-      <ContentWrapper
-        className='col-md-6' >
-        <div className="content-container">
+        <SlickSlider
+          video={product.videoLink}
+          images={product.images} />
+        
+        <ImagesWrapper
+          className='col-md-6' >
           <ImageContainer
-            product={product} />
-          <div className="content-content">
-            <div className="content">
-              <label>{product.name}</label>
-              <span>{product.shortDescription}</span>
-              <p>{product.description}</p>
-              <PillsWrapper>
-                {product.discoveries.map((discovery, i) => (
-                  <Pills
-                    key={discovery.name + i}
-                    clickEvent={() => (goToDiscovery(currentHistory, discovery.slug))}
-                    name={discovery.name} />
-                  ))}
-              </PillsWrapper>
-              <AmazonButton />
+            product={product}
+            addImages='true' />
+        </ImagesWrapper>
+
+        <ContentWrapper
+          className='col-md-6' >
+          <div className="content-container">
+            <ImageContainer
+              product={product} />
+            <div className="content-content">
+              <div className="content">
+                <label>{product.name}</label>
+                <span>{product.shortDescription}</span>
+                <p>{product.description}</p>
+                <PillsWrapper>
+                  {product.discoveries.map((discovery, i) => (
+                    <Pills
+                      key={discovery.name + i}
+                      clickEvent={() => (goToDiscovery(currentHistory, discovery.slug))}
+                      name={discovery.name} />
+                    ))}
+                </PillsWrapper>
+                <AmazonButton />
+              </div>
             </div>
           </div>
-        </div>
-      </ContentWrapper>
-    </ProductWrapper>
+        </ContentWrapper>
+      </ProductWrapper>
+      <SimilarProducts
+        product={product} />
+    </>
   );
 };
 
