@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import ContentSection from '../ContentSection';
 import ProductCard from '../ProductCard';
 import { breakPoints } from '../../helpers/breakPoints';
 

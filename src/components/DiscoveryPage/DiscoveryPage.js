@@ -1,5 +1,4 @@
 import React from 'react';
-import styled from '@emotion/styled/macro';
 import ContentSection from '../ContentSection';
 import DiscoveryList from '../DiscoveryList';
 import { goToDiscovery } from '../../helpers/general';

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
-import { relative } from 'path';
 
 const ProductContainer = styled.div(({ image:{ url } }) => ({
   position: 'relative',

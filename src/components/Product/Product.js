@@ -1,14 +1,26 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
 import { COLORS } from '../../helpers/colors';
-import Pills from '../Pills/Pills';
+import Pills from '../Pills';
 import { goToDiscovery } from '../../helpers/general';
 import { AmazonButton } from '../Buttons';
+import { breakPoints } from '../../helpers/breakPoints';
+import SlickSlider from '../SlickSlider';
 
 const colStyles = {
   display: 'inline-block',
   verticalAlign: 'top'
 };
+
+const ProductWrapper = styled.div({
+  '.image-container': {
+    display: 'none',
+    
+    [breakPoints.breakPointMD]: {
+      display: 'initial'
+    }
+  }
+})
 
 const ImagesWrapper = styled.div({
   ...colStyles,
@@ -35,6 +47,8 @@ const IframeWrapper = styled.div({
 });
 
 const ImageContent = styled.div(({ image = null }) => ({
+  overflow: 'hidden',
+  borderRadius: '5px',
   
   '& + .image-content': {
     marginTop: '15px'
@@ -52,7 +66,25 @@ const ImageContent = styled.div(({ image = null }) => ({
 
 const ContentWrapper = styled.div({
   ...colStyles,
-  padding: '0 0 0 20px',
+  padding: '0',
+
+  [breakPoints.breakPointMD]: {
+    padding: '0 0 0 20px',
+
+    '.content-content': {
+      position: 'absolute',
+      top: '-80px',
+      left: '0',
+      height: 'calc(100% + 80px)',
+    },
+
+    '.content': {
+      position: 'sticky',
+      top: '0',
+      left: '0',
+      paddingTop: '69px',
+    }
+  },
 
   '.image-container': {
     pointerEvents: 'none'
@@ -63,17 +95,10 @@ const ContentWrapper = styled.div({
   },
 
   '.content-content': {
-    position: 'absolute',
-    top: '-80px',
-    left: '0',
-    height: 'calc(100% + 80px)',
+    
   },
 
   '.content': {
-    position: 'sticky',
-    top: '0',
-    left: '0',
-    paddingTop: '69px',
 
     '& > label, & > span': {
       display: 'block',
@@ -106,11 +131,13 @@ const ImageContainer = ({ product, addImages = null }) => {
   
   return (
     <div className="image-container">
-      <IframeWrapper>
-        <iframe
-          className="video-wrapper"
-          src={(addImages) ? product.videoLink : null} />
-      </IframeWrapper>
+      {(product.videoLink) &&
+        <IframeWrapper>
+          <iframe
+            title='Product Video'
+            className="video-wrapper"
+            src={(addImages) ? product.videoLink : null} />
+        </IframeWrapper>}
       {product.images.map((image, i) => (
         <ImageContent
           className='image-content'
@@ -124,10 +151,14 @@ const ImageContainer = ({ product, addImages = null }) => {
 };
 
 const Product = ({ product, currentHistory }) => {
-  console.log(product);
 
   return (
-    <>
+    <ProductWrapper>
+
+      <SlickSlider
+        video={product.videoLink}
+        images={product.images} />
+      
       <ImagesWrapper
         className='col-md-6' >
         <ImageContainer
@@ -146,18 +177,19 @@ const Product = ({ product, currentHistory }) => {
               <span>{product.shortDescription}</span>
               <p>{product.description}</p>
               <PillsWrapper>
-                {product.discoveries.map((discovery) => (
+                {product.discoveries.map((discovery, i) => (
                   <Pills
+                    key={discovery.name + i}
                     clickEvent={() => (goToDiscovery(currentHistory, discovery.slug))}
                     name={discovery.name} />
-                ))}
+                  ))}
               </PillsWrapper>
               <AmazonButton />
             </div>
           </div>
         </div>
       </ContentWrapper>
-    </>
+    </ProductWrapper>
   );
 };
 

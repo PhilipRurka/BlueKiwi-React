@@ -7,7 +7,7 @@ import { COLORS } from '../../helpers/colors';
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
-  WATCH_LIST_PAGE
+  // WATCH_LIST_PAGE
 } from '../../helpers/constants';
 
 /** Styles Styles Styles Styles Styles */
@@ -139,12 +139,12 @@ const Header = ({ currentHistory, currentPathname, openMobileMenu }) => {
                 targetLocation={DISCOVER_PAGE} >
                 Discover
               </Label>
-              <Label
+              {/* <Label
                 onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
                 currentPathname={currentPathname}
                 targetLocation={WATCH_LIST_PAGE} >
                 Watchlist
-              </Label>
+              </Label> */}
             </NavItems>
           </NavBar>
         </div>

@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled/macro';
-import { isObjEmpty } from '../../helpers/general';
 import { COLORS } from '../../helpers/colors';
 
 const BreadCrumsWrapper = styled.div(({ isProduct }) => ({

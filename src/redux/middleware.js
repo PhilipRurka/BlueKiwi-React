@@ -24,6 +24,7 @@ export function middleware() {
                 image: discovery.image.fields.file.url,
                 products: []
               };
+              return null;
             });
 
             res.items.map((product) => {
@@ -57,8 +58,12 @@ export function middleware() {
                 products[product.slug].discoveries.push({
                   name: discovery.fields.type,
                   slug: discovery.fields.categorySlug
-                })
+                });
+
+                return null;
               });
+
+              return null;
             });
 
             return next({ type, payload: {
