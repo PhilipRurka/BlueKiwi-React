@@ -125,7 +125,7 @@ const ContentWrapper = styled.div({
 });
 
 const PillsWrapper = styled.div({
-  margin: '30px 0'
+  margin: '20px 0 30px'
 });
 
 const ImageContainer = ({ product, addImages = null }) => {

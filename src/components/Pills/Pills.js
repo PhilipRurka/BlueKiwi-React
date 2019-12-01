@@ -7,6 +7,7 @@ const PillsWrapperStyled = styled.div({
   padding: '0 10px 2px',
   border: `2px solid ${COLORS.brandColorText}`,
   borderRadius: '20px',
+  marginTop: '10px',
   
   '&, *': { cursor: 'pointer' },
   '& + div': { marginLeft: '10px' },

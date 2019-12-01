@@ -52,6 +52,7 @@ const XIcon = styled.div({
 });
 
 const Label = styled.label(({ targetLocation, currentPathname }) => ({
+  cursor: 'pointer',
   color: (targetLocation && (process.env.PUBLIC_URL + targetLocation) === currentPathname)
   ? COLORS.brandColorTextHover : COLORS.iconBlack
 }));
@@ -87,7 +88,7 @@ const MobileMenu = ({ goToPage, currentHistory, currentPathname, showingMobileMe
                 Discovery
               </Label>
             </li>
-            <li>
+            {/* <li>
               <Label
                 onClick={() => (goToPageFunc(openMobileMenu, goToPage, WATCH_LIST_PAGE, currentHistory))}
                 goToPage={goToPage}
@@ -95,7 +96,7 @@ const MobileMenu = ({ goToPage, currentHistory, currentPathname, showingMobileMe
                 targetLocation={WATCH_LIST_PAGE} >
                 Watchlist
               </Label>
-            </li>
+            </li> */}
           </ul>
         </div>
       </MobileMenuWrapper>
