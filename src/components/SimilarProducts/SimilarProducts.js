@@ -11,7 +11,9 @@ const SimilarProductsWrapper = styled.div({
 const SimilarProducts = ({ product, discoveriesList, currentHistory }) => {
   let productsArray = [];
   let similarProducts = [];
-  let displayedItems = {};
+  let displayedItems = {
+    [product.name]: true
+  };
   let numDisplayed = 0;
 
   for (let i = 0; i < product.discoveries.length; i++) {
