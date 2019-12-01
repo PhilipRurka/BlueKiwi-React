@@ -1,13 +1,20 @@
 import { DISCOVER_PAGE } from './constants';
 
-export const goToProduct = (currentHistory, param) => {
-  let pathname = currentHistory.location.pathname;
-  if(pathname.includes('/BlueKiwi-React/')) {
-    pathname = pathname.split('/BlueKiwi-React');
-    pathname = pathname[1];
-  };
-  if(pathname !== '/') {
-    pathname += '/';
+export const goToProduct = (currentHistory, param, isSimilarProducts) => {
+
+  let pathname;
+  if(isSimilarProducts) {
+    pathname = '/';
+  } else {
+    pathname = currentHistory.location.pathname;
+    if(pathname.includes('/BlueKiwi-React/')) {
+      pathname = pathname.split('/BlueKiwi-React');
+      pathname = pathname[1];
+    };
+
+    if(pathname !== '/') {
+      pathname += '/';
+    };
   };
   
   currentHistory.push(process.env.PUBLIC_URL + pathname + param);

@@ -76,7 +76,7 @@ const ProductCard = ({
 
     <ProductContainer
       image={image}
-      onClick={() => (clickEvent(currentHistory, slug))} >
+      onClick={() => (clickEvent(currentHistory, slug, true))} >
       <div className="image-wrapper">
         <div className="image" />
       </div>
