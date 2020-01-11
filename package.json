@@ -22,12 +22,16 @@
     "uuid": "^3.3.3"
   },
   "scripts": {
-    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "start": "react-scripts start",
-    "build": "react-scripts build && cp build/index.html build/404.html",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "build": "react-scripts build && cp build/index.html build/404.html"
+  },
+  "ntl": {
+    "descriptions": {
+      "deploy": "Deploys to Github Pages",
+      "start": "Start application on Port 3000",
+      "build": "| Used for deploy script | Builds application for production"
+    }
   },
   "eslintConfig": {
     "extends": "react-app"
