@@ -1,8 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProductList from '../components/ProductList';
-import DiscoveryList from '../components/DiscoveryList';
-import ContentSection from '../components/ContentSection';
+import { ProductList, DiscoveryList, ContentSection } from '../components';
 import {
   goToProduct,
   goToDiscovery

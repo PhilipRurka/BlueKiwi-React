@@ -1,16 +1,16 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled/macro';
-import MobileMenu from './components/MobileMenu';
-import { openMobileMenu } from '../../utils/redux/redux.actions';
-import { Hamburger } from '../CustomeMadeIcons';
-import { breakPoints } from '../../utils/breakPoints.utils';
-import { COLORS } from '../../utils/colors.utils';
+import MobileMenu from './MobileMenu';
+import { openMobileMenu } from '../utils';
+import { Hamburger } from './CustomeMadeIcons';
+import { breakPoints } from '../utils/breakPoints.utils';
+import { COLORS } from '../utils/colors.utils';
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
   WISHLIST_PAGE
-} from '../../Router/Router.constants';
+} from '../router';
 
 /** Styles Styles Styles Styles Styles */
 const HeaderWrapper = styled.header({

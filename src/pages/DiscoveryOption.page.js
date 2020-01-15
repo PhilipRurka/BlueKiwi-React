@@ -1,7 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import ProductList from '../components/ProductList';
-import ContentSection from '../components/ContentSection';
+import { ProductList, ContentSection } from '../components';
 import { goToProduct } from '../utils/helper.utils';
 
 export default connect(({ currentHistory }) => ({

@@ -1,14 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { openMobileMenu } from '../../../utils/redux/redux.actions';
+import { openMobileMenu } from '../utils';
 import styled from '@emotion/styled/macro';
 import Overlay from './Overlay';
-import { COLORS } from '../../../utils/colors.utils';
-import { Cross} from '../../CustomeMadeIcons';
+import { COLORS } from '../utils/colors.utils';
+import { Cross} from './CustomeMadeIcons';
 import {
   DISCOVER_PAGE,
   WISHLIST_PAGE
-} from '../../../Router/Router.constants';
+} from '../router';
 
 /** Styles Styles Styles Styles Styles */
 const MobileMenuWrapper = styled.div(({ showingMobileMenu }) => {

@@ -1,6 +1,6 @@
 import React from 'react';
-import ContentSection from '../../components/ContentSection';
-import Product from './components/Product';
+import { ContentSection } from '../../components';
+import { Product } from './components';
 
 const ProductPage = ({ selectedProduct }) => (
   <ContentSection>

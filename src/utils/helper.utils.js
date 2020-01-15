@@ -1,4 +1,4 @@
-import { DISCOVER_PAGE } from '../Router/Router.constants';
+import { DISCOVER_PAGE } from '../router';
 
 export const goToProduct = (currentHistory, param, isSimilarProducts) => {
 

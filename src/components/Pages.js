@@ -4,7 +4,7 @@ import styled from '@emotion/styled/macro';
 import BreadCrums from './BreadCrums';
 import LandingPage from '../pages/Landing.page';
 import Discovery from '../pages/Discovery.page';
-import Product from '../pages/Product.page';
+import Product from '../pages/product.page/Product.page';
 import Wishlist from '../pages/Wishlist.page';
 import DiscoveryOption from '../pages/DiscoveryOption.page';
 import { isObjEmpty } from '../utils/helper.utils';
@@ -14,7 +14,7 @@ import {
   DISCOVER_OPTION_PAGE,
   WISHLIST_PAGE,
   PRODUCT_PAGE
-} from '../Router/Router.constants';
+} from '../router';
 
 /** Styles Styles Styles Styles Styles */
 const PagesWrapper = styled.div({

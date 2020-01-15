@@ -1,7 +1,5 @@
 import { getProductsList } from '../httpRequests.utils';
-import {
-  UPDATE_LISTS
-} from './redux.constants';
+import { UPDATE_LISTS } from '../redux';
 
 export function middleware() {
   return function(next) {

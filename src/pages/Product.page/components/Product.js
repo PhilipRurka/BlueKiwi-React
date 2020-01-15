@@ -1,13 +1,13 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled/macro';
-import Pills from './Pills';
-import SimilarProducts from './SimilarProducts';
+import { Pills } from '../components';
+import { SimilarProducts } from '../components';
 import { COLORS } from '../../../utils/colors.utils';
 import { goToDiscovery } from '../../../utils/helper.utils';
-import { AmazonButton } from '../../../components/Buttons';
+import { AmazonButton } from '../../../components';
 import { breakPoints } from '../../../utils/breakPoints.utils';
-import SlickSlider from './SlickSlider';
+import { SlickSlider } from '../components';
 
 /** Styles Styles Styles Styles Styles */
 const colStyles = {

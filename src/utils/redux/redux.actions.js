@@ -2,7 +2,7 @@ import {
   UPDATE_HISTORY,
   OPEN_MOBILE_MENU,
   UPDATE_LISTS
-} from '../../utils/redux/redux.constants';
+} from '../../utils';
 
 export function updateHistory(payload) {
   return { type: UPDATE_HISTORY, payload };

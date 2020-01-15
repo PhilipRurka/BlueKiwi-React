@@ -1,8 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import styled from '@emotion/styled/macro';
-import ProductList from '../../../components/ProductList';
-import ContentSection from '../../../components/ContentSection';
+import { ContentSection, ProductList } from '../../../components';
 import { goToProduct } from '../../../utils/helper.utils';
 
 /** Styles Styles Styles Styles Styles */

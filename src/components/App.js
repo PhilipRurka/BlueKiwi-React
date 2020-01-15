@@ -1,11 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled/macro';
-import Header from './Header';
-import Router from '../Router';
-import Footer from './Footer';
+import { Header, Footer } from '../components';
+import Router from '../router/Router';
 import { isObjEmpty } from '../utils/helper.utils';
 import { connect } from 'react-redux';
-import { updateLists } from '../utils/redux/redux.actions';
+import { updateLists } from '../utils';
 
 export default connect(({ productsList }) => ({
     /** Redux */
