@@ -7,7 +7,7 @@ import { COLORS } from '../../../utils/colors.utils';
 import { Cross} from '../../CustomeMadeIcons';
 import {
   DISCOVER_PAGE,
-  // WATCH_LIST_PAGE
+  WISHLIST_PAGE
 } from '../../../Router/Router.constants';
 
 /** Styles Styles Styles Styles Styles */
@@ -104,15 +104,15 @@ export default connect(({ currentHistory, currentPathname, showingMobileMenu }) 
               Discovery
             </Label>
           </li>
-          {/* <li>
+          <li>
             <Label
-              onClick={() => (goToPageFunc(openMobileMenu, goToPage, WATCH_LIST_PAGE, currentHistory))}
+              onClick={() => (goToPageFunc(openMobileMenu, goToPage, WISHLIST_PAGE, currentHistory))}
               goToPage={goToPage}
               currentPathname={currentPathname}
-              targetLocation={WATCH_LIST_PAGE} >
-              Watchlist
+              targetLocation={WISHLIST_PAGE} >
+              Wishlist
             </Label>
-          </li> */}
+          </li>
         </ul>
       </div>
     </MobileMenuWrapper>

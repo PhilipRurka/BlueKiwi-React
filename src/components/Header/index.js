@@ -9,7 +9,7 @@ import { COLORS } from '../../utils/colors.utils';
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
-  // WATCH_LIST_PAGE
+  WISHLIST_PAGE
 } from '../../Router/Router.constants';
 
 /** Styles Styles Styles Styles Styles */
@@ -149,12 +149,12 @@ export default connect(({ currentHistory, currentPathname }) => ({
               targetLocation={DISCOVER_PAGE} >
               Discover
             </Label>
-            {/* <Label
-              onClick={() => (goToPage(WATCH_LIST_PAGE, currentHistory))}
+            <Label
+              onClick={() => (goToPage(WISHLIST_PAGE, currentHistory))}
               currentPathname={currentPathname}
-              targetLocation={WATCH_LIST_PAGE} >
-              Watchlist
-            </Label> */}
+              targetLocation={WISHLIST_PAGE} >
+              Wishlist
+            </Label>
           </NavItems>
         </NavBar>
       </div>

@@ -11,7 +11,7 @@ import {
   LANDING_PAGE,
   DISCOVER_PAGE,
   DISCOVER_OPTION_PAGE,
-  WATCH_LIST_PAGE,
+  WISHLIST_PAGE,
   OPTION,
   PRODUCT_PAGE
 } from './Router.constants';
@@ -23,7 +23,7 @@ const routeOptions = {
   discoverOption: process.env.PUBLIC_URL + DISCOVER_PAGE + OPTION,
   product: process.env.PUBLIC_URL + PRODUCT_PAGE,
   discoverToProduct: process.env.PUBLIC_URL + DISCOVER_PAGE + OPTION + PRODUCT_PAGE,
-  watchList: process.env.PUBLIC_URL + WATCH_LIST_PAGE
+  watchlist: process.env.PUBLIC_URL + WISHLIST_PAGE
 };
 
 export default connect(null,
@@ -39,7 +39,7 @@ export default connect(null,
     landing,
     discover,
     discoverOption,
-    watchList,
+    watchlist,
     product,
     discoverToProduct
   } = routeOptions;
@@ -63,6 +63,13 @@ export default connect(null,
           } />
         <Route
           exact
+          path={watchlist}
+          component={(props) => {
+            updateHistory(props.history);
+            return <Pages {...props} page={WISHLIST_PAGE} /> }
+          } />
+        <Route
+          exact
           path={discoverOption}
           component={(props) => {
             updateHistory(props.history);
@@ -79,12 +86,6 @@ export default connect(null,
           component={(props) => {
             updateHistory(props.history);
             return <Pages {...props} page={PRODUCT_PAGE} /> }
-          } />
-        <Route
-          path={watchList}
-          component={(props) => {
-            updateHistory(props.history);
-            return <Pages {...props} page={WATCH_LIST_PAGE} /> }
           } />
         <Redirect
           to={landing}

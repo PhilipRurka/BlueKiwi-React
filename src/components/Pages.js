@@ -5,14 +5,14 @@ import BreadCrums from './BreadCrums';
 import LandingPage from '../pages/Landing.page';
 import Discovery from '../pages/Discovery.page';
 import Product from '../pages/Product.page';
-import WatchList from '../pages/WatchList.page';
+import Wishlist from '../pages/Wishlist.page';
 import DiscoveryOption from '../pages/DiscoveryOption.page';
 import { isObjEmpty } from '../utils/helper.utils';
 import {
   LANDING_PAGE,
   DISCOVER_PAGE,
   DISCOVER_OPTION_PAGE,
-  WATCH_LIST_PAGE,
+  WISHLIST_PAGE,
   PRODUCT_PAGE
 } from '../Router/Router.constants';
 
@@ -91,8 +91,8 @@ export default connect(({ currentPathname, productsList, discoveriesList, curren
       };
     };
 
-  } else if(page === WATCH_LIST_PAGE) {
-    chosenPage = <WatchList />
+  } else if(page === WISHLIST_PAGE) {
+    chosenPage = <Wishlist />
   };
 
   let breadCrums;

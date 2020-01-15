@@ -1,7 +1,7 @@
 import React from 'react';
 // import styled from '@emotion/styled/macro';
 
-const WatchListPage = () => {
+const Wishlist = () => {
 
   return (
     <div>
@@ -10,4 +10,4 @@ const WatchListPage = () => {
   );
 };
 
-export default WatchListPage;
+export default Wishlist;
